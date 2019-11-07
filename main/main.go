@@ -11,7 +11,7 @@ import (
 	"github.com/gogo/protobuf/proto"
 //	"github.com/golang/protobuf/ptypes"
 
-	cu ".."
+	cu "github.com/0987363/gogo-custom-daemon"
 )
 
 type Test struct {
