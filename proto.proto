@@ -8,15 +8,25 @@ option (gogoproto.unmarshaler_all) = false;
 option (gogoproto.marshaler_all) = false;
 option (gogoproto.goproto_unkeyed_all) = false;
 option (gogoproto.goproto_sizecache_all) = false;
+
+
 /*
 option (gogoproto.testgen_all) = true;
 option (gogoproto.populate_all) = false;
 option (gogoproto.equal_all) = false;
 */
 
+//option (gogoproto.sizer_all) = false;
+
 message Device {
     option (gogoproto.goproto_unrecognized) = false;
- //   bytes ID = 1 [(gogoproto.customtype) = "ObjectId", (gogoproto.jsontag) = "_id,omitempt", (gogoproto.moretags) = "bson:\"_id,omitempt\""];
-    bytes ID = 2 [(gogoproto.customtype) = "github.com/0987363/mgo/bson.ObjectId", (gogoproto.jsontag) = "id,omitempty", (gogoproto.moretags) = "bson:\"id,omitempty\""];
+    option (gogoproto.stringer) = false;
+//    option (gogoproto.sizer) = true;
+  //  option (gogoproto.typedecl) = false;
+
+    bytes ID = 1 [(gogoproto.customtype) = "ObjectId", (gogoproto.jsontag) = "_id,omitempty", (gogoproto.moretags) = "bson:\"_id,omitempty\""];
+//    bytes ID = 2 [(gogoproto.customtype) = "github.com/0987363/mgo/bson.ObjectId", (gogoproto.jsontag) = "id,omitempty", (gogoproto.moretags) = "bson:\"id,omitempty\""];
     google.protobuf.Timestamp Timestamp = 3 [(gogoproto.stdtime) = true, (gogoproto.nullable) = true, (gogoproto.jsontag) = "timestamp,omitempty", (gogoproto.moretags) = "bson:\"timestamp,omitempty\""];
+
+    bytes DD = 10 [(gogoproto.customtype) = "github.com/0987363/gogotype.NullInt64", (gogoproto.jsontag) = "dd,omitempty", (gogoproto.moretags) = "bson:\"dd,omitempty\""];
 }
